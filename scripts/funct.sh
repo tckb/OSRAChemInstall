@@ -14,7 +14,7 @@ detectOS(){
 
 OpSys=`uname| tr '[:upper:]' '[:lower:]'` # OpSys=`lowercase \`uname\`` ==> 'lowercase' is not posix standard
 Kernl=`uname -r`
-MACH=`uname -m`
+Arch=`uname -m`
 if [ "${OpSys}" == "windowsnt" ]; then
 	OpSys=windows
 elif [ "${OpSys}" == "darwin" ]; then
@@ -60,7 +60,7 @@ else
 		readonly PSUEDONAME
 		readonly REV
 		readonly Kernl
-		readonly MACH
+		readonly Arch
 	fi
 fi
 
@@ -96,7 +96,7 @@ DownloadOSRAChem(){
 		printf "\nDownload failed, check the installation link for OsrChem"
 		exit 1
 	fi
-	tar -zxvf osrachem.tgz & >> ochem.log
+	tar -zxf osrachem.tgz 2>> ochem.log
 
 }
 
