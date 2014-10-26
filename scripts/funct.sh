@@ -12,22 +12,22 @@ detectOS(){
 # Original source : https://github.com/coto/server-easy-install/blob/master/lib/core.sh
 # Modified to support osx
 
-OS=`uname| tr '[:upper:]' '[:lower:]'` # OS=`lowercase \`uname\`` ==> 'lowercase' is not posix standard
+OpSys=`uname| tr '[:upper:]' '[:lower:]'` # OpSys=`lowercase \`uname\`` ==> 'lowercase' is not posix standard
 KERNEL=`uname -r`
 MACH=`uname -m`
-if [ "${OS}" == "windowsnt" ]; then
-	OS=windows
-elif [ "${OS}" == "darwin" ]; then
-	OS=mac
+if [ "${OpSys}" == "windowsnt" ]; then
+	OpSys=windows
+elif [ "${OpSys}" == "darwin" ]; then
+	OpSys=mac
 else
-	OS=`uname`
-	if [ "${OS}" = "SunOS" ] ; then
-		OS=Solaris
+	OpSys=`uname`
+	if [ "${OpSys}" = "SunOS" ] ; then
+		OpSys=Solaris
 		ARCH=`uname -p`
-		OSSTR="${OS} ${REV}(${ARCH} `uname -v`)"
-	elif [ "${OS}" = "AIX" ] ; then
-		OSSTR="${OS} `oslevel` (`oslevel -r`)"
-	elif [ "${OS}" = "Linux" ] ; then
+		OSSTR="${OpSys} ${REV}(${ARCH} `uname -v`)"
+	elif [ "${OpSys}" = "AIX" ] ; then
+		OSSTR="${OpSys} `oslevel` (`oslevel -r`)"
+	elif [ "${OpSys}" = "Linux" ] ; then
 		if [ -f /etc/redhat-release ] ; then
 			DistroBasedOn='RedHat'
 			DIST=`cat /etc/redhat-release |sed s/\ release.*//`
@@ -52,15 +52,15 @@ else
 		if [ -f /etc/UnitedLinux-release ] ; then
 			DIST="${DIST}[`cat /etc/UnitedLinux-release | tr "\n" ' ' | sed s/VERSION.*//`]"
 		fi
-		OS=`uname| tr '[:upper:]' '[:lower:]'`
+		OpSys=`uname| tr '[:upper:]' '[:lower:]'`
 		DistroBasedOn=`echo $DistroBasedOn | tr '[:upper:]' '[:lower:]'`
-		# readonly OS
-		# readonly DIST
-		# readonly DistroBasedOn
-		# readonly PSUEDONAME
-		# readonly REV
-		# readonly KERNEL
-		# readonly MACH
+		readonly OpSys
+		readonly DIST
+		readonly DistroBasedOn
+		readonly PSUEDONAME
+		readonly REV
+		readonly KERNEL
+		readonly MACH
 	fi
 fi
 
@@ -97,7 +97,7 @@ DownloadOSRAChem(){
 		exit 1
 	fi
 
-	tar -zxvf osrachem.tgz & >> ochem.log
+	tar -zxvf osrachem.tgz &>> ochem.log
 
 
 }
