@@ -1,4 +1,3 @@
-#!/bin/bash
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
 

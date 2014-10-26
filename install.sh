@@ -1,7 +1,5 @@
-#!/bin/bash
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
-
 
 
 OsraChemDownloadLink='https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/binaries/bundle-0.1.tgz'
