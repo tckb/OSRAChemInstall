@@ -23,30 +23,30 @@ else
 	OpSys=`uname`
 	if [ "${OpSys}" = "SunOS" ] ; then
 		OpSys=Solaris
-		ARCH=`uname -p`
-		OSSTR="${OpSys} ${REV}(${ARCH} `uname -v`)"
+		Arch=`uname -p`
+		OSSTR="${OpSys} ${DstVer}(${Arch} `uname -v`)"
 	elif [ "${OpSys}" = "AIX" ] ; then
 		OSSTR="${OpSys} `oslevel` (`oslevel -r`)"
 	elif [ "${OpSys}" = "Linux" ] ; then
 		if [ -f /etc/redhat-release ] ; then
 			LinuxFlavour='RedHat'
 			Dst=`cat /etc/redhat-release |sed s/\ release.*//`
-			PSUEDONAME=`cat /etc/redhat-release | sed s/.*\(// | sed s/\)//`
-			REV=`cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
+			PsdName=`cat /etc/redhat-release | sed s/.*\(// | sed s/\)//`
+			DstVer=`cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
 		elif [ -f /etc/SuSE-release ] ; then
 			LinuxFlavour='SuSe'
-			PSUEDONAME=`cat /etc/SuSE-release | tr "\n" ' '| sed s/VERSION.*//`
-			REV=`cat /etc/SuSE-release | tr "\n" ' ' | sed s/.*=\ //`
+			PsdName=`cat /etc/SuSE-release | tr "\n" ' '| sed s/VERSION.*//`
+			DstVer=`cat /etc/SuSE-release | tr "\n" ' ' | sed s/.*=\ //`
 		elif [ -f /etc/mandrake-release ] ; then
 			LinuxFlavour='Mandrake'
-			PSUEDONAME=`cat /etc/mandrake-release | sed s/.*\(// | sed s/\)//`
-			REV=`cat /etc/mandrake-release | sed s/.*release\ // | sed s/\ .*//`
+			PsdName=`cat /etc/mandrake-release | sed s/.*\(// | sed s/\)//`
+			DstVer=`cat /etc/mandrake-release | sed s/.*release\ // | sed s/\ .*//`
 		elif [ -f /etc/debian_version ] ; then
 			LinuxFlavour='Debian'
 			if [ -f /etc/lsb-release ] ; then
 				Dst=`cat /etc/lsb-release | grep '^DISTRIB_ID' | awk -F= '{ print $2 }'`
-				PSUEDONAME=`cat /etc/lsb-release | grep '^DISTRIB_CODENAME' | awk -F= '{ print $2 }'`
-				REV=`cat /etc/lsb-release | grep '^DISTRIB_RELEASE' | awk -F= '{ print $2 }'`
+				PsdName=`cat /etc/lsb-release | grep '^DISTRIB_CODENAME' | awk -F= '{ print $2 }'`
+				DstVer=`cat /etc/lsb-release | grep '^DISTRIB_RELEASE' | awk -F= '{ print $2 }'`
 			fi
 		fi
 		if [ -f /etc/UnitedLinux-release ] ; then
