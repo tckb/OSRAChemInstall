@@ -4,6 +4,9 @@
 ##### Function declarations
 
 # functions are all posix compliant
+OsraChemDownloadLink='https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/binaries/bundle-0.1.tgz'
+OsraDownloadLink='http://downloads.sourceforge.net/project/osra/osra/2.0.0/osra-2.0.0.tgz'
+
 
 detectOS(){
 # Original source : https://github.com/coto/server-easy-install/blob/master/lib/core.sh
