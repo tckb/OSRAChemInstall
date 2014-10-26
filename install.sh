@@ -3,9 +3,8 @@
 # Author tckb <tckb.504@gmail.com>
 
 
-# Public links
 
-OsraChemDownloadLink='https://www.dropbox.com/s/k68a8ai09u4z18v/bundle-0.1.tgz'
+OsraChemDownloadLink='https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/binaries/bundle-0.1.tgz'
 OsraDownloadLink='http://downloads.sourceforge.net/project/osra/osra/2.0.0/osra-2.0.0.tgz'
 
 printf "\n### Install script for OSRAChem ###"
