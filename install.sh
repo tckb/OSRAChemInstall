@@ -2,9 +2,6 @@
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
 
-source $(dirname $0)/scripts/funct.sh
-source $(dirname $0)/scripts/install_osx.sh
-source $(dirname $0)/scripts/install_deb.sh
 
 # Public links
 
@@ -21,7 +18,10 @@ case $OS in
 	'mac' )
 
 	printf "Mac osx"
-	do_install_osx
+
+	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_deb.sh -O /var/tmp/install_osx.sh
+	bash /var/tmp/install_osx.sh
+
 
 ;;
 
@@ -30,7 +30,9 @@ case $OS in
 printf "Linux  "
 if [[ $DistroBasedOn -eq 'Debian' ]]; then
 	printf "(Debian flavour)"
-	do_install_deb
+
+	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_deb.sh -O /var/tmp/install_deb.sh
+	bash /var/tmp/install_deb.sh
 else
 	printf "($DistroBasedOn)"
 	printf "\n Sorry, only Debian based systems are supported."
