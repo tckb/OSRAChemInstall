@@ -1,8 +1,7 @@
+#!/bin/bash
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
 
-wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/funct.sh -O /var/tmp/funct.sh
-source $(dirname $0)/funct.sh
 
 	check_command osra
 	if [[ $? -ne 0 ]]; then

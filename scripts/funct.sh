@@ -51,13 +51,13 @@ else
 		fi
 		OS=`uname| tr '[:upper:]' '[:lower:]'`
 		DistroBasedOn=`echo $DistroBasedOn | tr '[:upper:]' '[:lower:]'`
-		readonly OS
-		readonly DIST
-		readonly DistroBasedOn
-		readonly PSUEDONAME
-		readonly REV
-		readonly KERNEL
-		readonly MACH
+		# readonly OS
+		# readonly DIST
+		# readonly DistroBasedOn
+		# readonly PSUEDONAME
+		# readonly REV
+		# readonly KERNEL
+		# readonly MACH
 	fi
 fi
 
