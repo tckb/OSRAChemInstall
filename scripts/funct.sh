@@ -97,7 +97,7 @@ DownloadOSRAChem(){
 		exit 1
 	fi
 
-	tar -zxvf osrachem.tgz &>>ochem.log
+	tar -zxvf osrachem.tgz & >> ochem.log
 
 
 }
