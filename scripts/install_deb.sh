@@ -22,7 +22,7 @@ source /var/tmp/funct.sh
 			check_install
 
 			printf "\n->Installing OpenBabel,tclap, potrace..."	
-			sudo apt-get -f install libpotrace0 libpotrace-dev libocrad-dev libtclap-dev libopenbabel-dev &>>ochem.log
+			sudo apt-get -f install libpotrace0 libpotrace-dev libocrad-dev libtclap-dev libopenbabel-dev &>> ochem.log
 			check_install
 
 			printf "\n->Installing GOCR-patched..."

@@ -17,7 +17,7 @@ case $OS in
 
 	printf "Mac osx"
 
-	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_deb.sh -O /var/tmp/install_osx.sh
+	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_osx.sh -O /var/tmp/install_osx.sh
 	chmod a+x /var/tmp/install_osx.sh
 	/var/tmp/install_osx.sh
 
