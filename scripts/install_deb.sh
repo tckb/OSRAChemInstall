@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
-
+source /var/tmp/funct.sh
 
 	check_command osra
 	if [[ $? -ne 0 ]]; then
