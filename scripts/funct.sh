@@ -13,7 +13,7 @@ detectOS(){
 # Modified to support osx
 
 OpSys=`uname| tr '[:upper:]' '[:lower:]'` # OpSys=`lowercase \`uname\`` ==> 'lowercase' is not posix standard
-KERNEL=`uname -r`
+Kernl=`uname -r`
 MACH=`uname -m`
 if [ "${OpSys}" == "windowsnt" ]; then
 	OpSys=windows
@@ -29,37 +29,37 @@ else
 		OSSTR="${OpSys} `oslevel` (`oslevel -r`)"
 	elif [ "${OpSys}" = "Linux" ] ; then
 		if [ -f /etc/redhat-release ] ; then
-			DistroBasedOn='RedHat'
-			DIST=`cat /etc/redhat-release |sed s/\ release.*//`
+			LinuxFlavour='RedHat'
+			Dst=`cat /etc/redhat-release |sed s/\ release.*//`
 			PSUEDONAME=`cat /etc/redhat-release | sed s/.*\(// | sed s/\)//`
 			REV=`cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
 		elif [ -f /etc/SuSE-release ] ; then
-			DistroBasedOn='SuSe'
+			LinuxFlavour='SuSe'
 			PSUEDONAME=`cat /etc/SuSE-release | tr "\n" ' '| sed s/VERSION.*//`
 			REV=`cat /etc/SuSE-release | tr "\n" ' ' | sed s/.*=\ //`
 		elif [ -f /etc/mandrake-release ] ; then
-			DistroBasedOn='Mandrake'
+			LinuxFlavour='Mandrake'
 			PSUEDONAME=`cat /etc/mandrake-release | sed s/.*\(// | sed s/\)//`
 			REV=`cat /etc/mandrake-release | sed s/.*release\ // | sed s/\ .*//`
 		elif [ -f /etc/debian_version ] ; then
-			DistroBasedOn='Debian'
+			LinuxFlavour='Debian'
 			if [ -f /etc/lsb-release ] ; then
-				DIST=`cat /etc/lsb-release | grep '^DISTRIB_ID' | awk -F= '{ print $2 }'`
+				Dst=`cat /etc/lsb-release | grep '^DISTRIB_ID' | awk -F= '{ print $2 }'`
 				PSUEDONAME=`cat /etc/lsb-release | grep '^DISTRIB_CODENAME' | awk -F= '{ print $2 }'`
 				REV=`cat /etc/lsb-release | grep '^DISTRIB_RELEASE' | awk -F= '{ print $2 }'`
 			fi
 		fi
 		if [ -f /etc/UnitedLinux-release ] ; then
-			DIST="${DIST}[`cat /etc/UnitedLinux-release | tr "\n" ' ' | sed s/VERSION.*//`]"
+			Dst="${Dst}[`cat /etc/UnitedLinux-release | tr "\n" ' ' | sed s/VERSION.*//`]"
 		fi
 		OpSys=`uname| tr '[:upper:]' '[:lower:]'`
-		DistroBasedOn=`echo $DistroBasedOn | tr '[:upper:]' '[:lower:]'`
+		LinuxFlavour=`echo $LinuxFlavour | tr '[:upper:]' '[:lower:]'`
 		readonly OpSys
-		readonly DIST
-		readonly DistroBasedOn
+		readonly Dst
+		readonly LinuxFlavour
 		readonly PSUEDONAME
 		readonly REV
-		readonly KERNEL
+		readonly Kernl
 		readonly MACH
 	fi
 fi
@@ -96,9 +96,7 @@ DownloadOSRAChem(){
 		printf "\nDownload failed, check the installation link for OsrChem"
 		exit 1
 	fi
-
 	tar -zxvf osrachem.tgz & >> ochem.log
-
 
 }
 
