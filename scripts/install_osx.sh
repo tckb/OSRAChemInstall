@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
-source /var/tmp/funct.sh
+source /var/tmp/funct
 
 printf "\n->Checking for dependencies... "
 
