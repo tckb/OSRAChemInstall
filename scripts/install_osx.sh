@@ -33,7 +33,7 @@ brew install osra
 check_command osra
 
 if [[ $? -ne 0 ]]; then
-	printf "\n->Osra installation failed! aborting"
+	printf "\n->Osra installation failed! aborting\n"
 	exit 1
 fi
 
