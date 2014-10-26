@@ -1,6 +1,8 @@
 # Install script for OSRAChem
 # Author tckb <tckb.504@gmail.com>
 
+wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/funct.sh -O /var/tmp/funct.sh
+source /var/tmp/funct.sh
 
 OsraChemDownloadLink='https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/binaries/bundle-0.1.tgz'
 OsraDownloadLink='http://downloads.sourceforge.net/project/osra/osra/2.0.0/osra-2.0.0.tgz'
