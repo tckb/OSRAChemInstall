@@ -18,7 +18,7 @@ case $OS in
 	printf "Mac osx"
 
 	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_deb.sh -O /var/tmp/install_osx.sh
-	bash /var/tmp/install_osx.sh
+	eval /var/tmp/install_osx.sh
 
 
 ;;
@@ -30,7 +30,7 @@ if [[ $DistroBasedOn -eq 'Debian' ]]; then
 	printf "(Debian flavour)"
 
 	wget -q https://raw.githubusercontent.com/tckb/OSRAChemInstall/master/scripts/install_deb.sh -O /var/tmp/install_deb.sh
-	bash /var/tmp/install_deb.sh
+	eval /var/tmp/install_deb.sh
 else
 	printf "($DistroBasedOn)"
 	printf "\n Sorry, only Debian based systems are supported."
