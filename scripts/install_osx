@@ -10,7 +10,7 @@ check_command brew
 if [[ $? -ne 0 ]]; then
 
 	printf "\n->Installing Homebrew ..."
-	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	printf"..finished \n"
 
 	printf "\n->Checking for homebrew"
