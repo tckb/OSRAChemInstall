@@ -54,13 +54,7 @@ else
 		fi
 		OpSys=`uname| tr '[:upper:]' '[:lower:]'`
 		LinuxFlavour=`echo $LinuxFlavour | tr '[:upper:]' '[:lower:]'`
-		readonly OpSys
-		readonly Dst
-		readonly LinuxFlavour
-		readonly PSUEDONAME
-		readonly REV
-		readonly Kernl
-		readonly Arch
+
 	fi
 fi
 
