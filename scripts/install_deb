@@ -29,7 +29,7 @@ source /var/tmp/funct
 			dpkg-query -W -f='${Status}' build-essential &>/dev/null | grep "ok installed"
 
 			if [[  $? -ne 0  ]]; then
-			printf "\n->Build-tools not installed! Installing build-tools ... \n"
+			printf "\n->Build-tools not installed! Installing build-tools..."
 			sudo apt-get -y install build-essential >>ochem.log
 			fi
 			check_install
