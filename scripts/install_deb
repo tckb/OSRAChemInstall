@@ -18,11 +18,11 @@ source /var/tmp/funct
 
 
 			printf "\n->Installing Graphicsmagick..."
-			sudo apt-get -f install graphicsmagick graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat libghc-hsmagick-dev  libgraphicsmagick++1-dev libgraphicsmagick1-dev  libgraphicsmagick++3 libgraphicsmagick3 >>ochem.log
+			sudo apt-get -y install graphicsmagick graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat libghc-hsmagick-dev  libgraphicsmagick++1-dev libgraphicsmagick1-dev  libgraphicsmagick++3 libgraphicsmagick3 >>ochem.log
 			check_install
 
 			printf "\n->Installing OpenBabel,tclap, potrace..."	
-			sudo apt-get -f install libpotrace0 libpotrace-dev libocrad-dev libtclap-dev libopenbabel-dev &>> ochem.log
+			sudo apt-get -y install libpotrace0 libpotrace-dev libocrad-dev libtclap-dev libopenbabel-dev &>> ochem.log
 			check_install
 			
 			# Search for autoconf, gcc, g++ ... a.k.a "Build-tools" :)
@@ -30,7 +30,7 @@ source /var/tmp/funct
 
 			if [[  $? -ne 0  ]]; then
 			printf "\n->Build-tools not installed! Installing build-tools ... \n"
-			sudo apt-get -f install build-essential >>ochem.log
+			sudo apt-get -y install build-essential >>ochem.log
 			fi
 			check_install
 				
