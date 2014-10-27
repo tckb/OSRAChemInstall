@@ -69,7 +69,9 @@ source /var/tmp/funct
 		if [[ $? -eq 0 ]]; then
 			printf "\n->All dependencies are satisfied; Installing OSRAChem\n"
 		else
+			printf "Installing OpenJDK7..."
 			sudo apt-get install openjdk-7-jdk 	&>>ochem.log
+			check_install
 		fi
 
 	else
