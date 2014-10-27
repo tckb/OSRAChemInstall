@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install script for OSRAChem
+# Install script for OSRAChem on OSX
 # Author tckb <tckb.504@gmail.com>
 source /var/tmp/funct
 
