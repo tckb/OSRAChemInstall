@@ -26,12 +26,12 @@ source /var/tmp/funct
 			check_install
 			
 			# Search for autoconf, gcc, g++ ... a.k.a "Build-tools" :)
-			dpkg-query -W -f='${Status}' build-essential &>/dev/null | grep "ok installed"
+			# dpkg-query -W -f='${Status}' build-essential &>/dev/null | grep "ok installed"
 
-			if [[  $? -ne 0  ]]; then
-			printf "\n->Build-tools not installed! Installing build-tools..."
+			# if [[  $? -ne 0  ]]; then
+			printf "\n->Installing build-tools..."
 			sudo apt-get -y install build-essential >>ochem.log
-			fi
+			# fi
 			check_install
 				
 			printf "\n->Installing GOCR-patched..."
