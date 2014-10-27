@@ -25,6 +25,11 @@ source /var/tmp/funct
 			sudo apt-get -f install libpotrace0 libpotrace-dev libocrad-dev libtclap-dev libopenbabel-dev &>> ochem.log
 			check_install
 			
+			
+			if [[  $( dpkg-query -W -f='${Status}' build-essential | grep "ok installed" ) -ne 0  ]]; then
+			printf "\n->Build-tools not installed!...Installing build-tools"
+			sudo apt-get install build-essential
+			fi
 				
 			printf "\n->Installing GOCR-patched..."
 			wget -q http://downloads.sourceforge.net/project/osra/gocr-patched/gocr-0.50pre-patched.tgz -O gocr.tgz
