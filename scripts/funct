@@ -62,7 +62,8 @@ fi
 }
 check_install(){
 	if [[ $? -ne 0 ]]; then
-		printf "failed, please check ochem.log file"
+		printf "failed! please check the log file\n"
+		mv *.log ../
 		exit 1
 	else
 		printf "done"
