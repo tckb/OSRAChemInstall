@@ -26,7 +26,7 @@ source /var/tmp/funct
 			check_install
 			
 			
-			if [[  $( dpkg-query -W -f='${Status}' build-essential | grep "ok installed" ) -ne 0  ]]; then
+			if [[  $( dpkg-query -W -f='${Status}' build-essential 2>/dev/null | grep -c "ok installed") -ne 0  ]]; then
 			printf "\n->Build-tools not installed!...Installing build-tools"
 			sudo apt-get install build-essential
 			fi
