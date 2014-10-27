@@ -29,9 +29,10 @@ source /var/tmp/funct
 			dpkg-query -W -f='${Status}' build-essential &>/dev/null | grep "ok installed"
 
 			if [[  $? -ne 0  ]]; then
-			printf "\n->Build-tools not installed!...Installing build-tools\n"
-			sudo apt-get -f install build-essential
+			printf "\n->Build-tools not installed! Installing build-tools ... \n"
+			sudo apt-get -f install build-essential >>ochem.log
 			fi
+			check_install
 				
 			printf "\n->Installing GOCR-patched..."
 			wget -q http://downloads.sourceforge.net/project/osra/gocr-patched/gocr-0.50pre-patched.tgz -O gocr.tgz
